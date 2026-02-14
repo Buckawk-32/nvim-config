@@ -7,7 +7,6 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "rust_analyzer",
-                    "pyright",
                     "ts_ls",
                     "stylua",
                     "arduino_language_server",
@@ -37,7 +36,7 @@ return {
                     mapNormal("K", vim.lsp.buf.hover)
 
                     opts.desc = "Show LSP Definition"
-                    mapNormal("<leader>gd", vim.lsp.buf.definition)
+                    mapNormal("<leader>gd", require("telescope.builtin").lsp_definitions)
 
                     opts.desc = "Go to Declaration"
                     mapNormal("<leader>gD", vim.lsp.buf.declaration)
@@ -104,6 +103,7 @@ return {
 
             vim.lsp.config("gdscript", {
                 cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+                -- cmd = { "godot-wsl-lsp", "--useMirroredNetworking" },
                 filetype = { "gd", "gdscript" },
                 root_markers = { "project.godot", ".git" },
             })
