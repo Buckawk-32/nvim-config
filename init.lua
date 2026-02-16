@@ -17,6 +17,8 @@ rtp:prepend(lazypath)
 require("lazy").setup({
     require "plugins.neotree",
     require "plugins.git",
+    require "plugins.csharp",
+    require "plugins.qol",
     require "plugins.whichKey",
     require "plugins.colortheme",
     require "plugins.telescope",
