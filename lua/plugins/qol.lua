@@ -112,20 +112,13 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         branch = "main",
-        lazy = true,
-        init = function()
-            vim.g.no_plugin_maps = true
-        end,
+        lazy = false,
         config = function()
             require("nvim-treesitter-textobjects").setup({
                 textobjects = {
                     select = {
                         enable = true,
                         lookahead = true,
-                        selection_modes = {
-                            ['@parameter.outer'] = 'v', -- charwise
-                            ['@function.outer'] = 'V', -- linewise
-                        },
                         include_surrounding_whitespace = false,
                         keymaps = {
                             -- You can use the capture groups defined in textobjects.scm
@@ -209,7 +202,7 @@ return {
                             ["[L"] = { query = "@loop.outer", desc = "Prev loop end" },
                         },
                     },
-                }
+                },
             })
         end,
     }
