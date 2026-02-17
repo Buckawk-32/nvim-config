@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
     {
         "mason-org/mason-lspconfig.nvim",
@@ -6,12 +7,11 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "rust_analyzer",
-                    "pyright",
                     "ts_ls",
                     "stylua",
                     "arduino_language_server",
                     "pylsp",
-                    "marksman",
+                    "marksman"
                 },
             })
         end,
@@ -19,7 +19,12 @@ return {
     {
         "mason-org/mason.nvim",
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                registries = {
+                    "github:mason-org/mason-registry",
+                    "github:Crashdummyy/mason-registry",
+                },
+            })
         end,
     },
     {
@@ -32,22 +37,22 @@ return {
                         vim.keymap.set("n", keybind, func, opts)
                     end
 
-                    opts.desc = "Show documentation under cursor"
+                    opts.desc = "Show Documentation Under Cursor"
                     mapNormal("K", vim.lsp.buf.hover)
 
-                    opts.desc = "Show LSP definition"
-                    mapNormal("<leader>gd", vim.lsp.buf.definition)
+                    opts.desc = "Show LSP Definition"
+                    mapNormal("<leader>gd", require("telescope.builtin").lsp_definitions)
 
-                    opts.desc = "Go to declaration"
+                    opts.desc = "Go to Declaration"
                     mapNormal("<leader>gD", vim.lsp.buf.declaration)
 
-                    opts.desc = "Show LSP implementation"
+                    opts.desc = "Show LSP Implementation"
                     mapNormal("<leader>gi", vim.lsp.buf.implementation)
 
-                    opts.desc = "Show LSP references"
-                    mapNormal("<leader>gr", require("telescope.builtin").lsp_references)
+                    opts.desc = "Show LSP References"
+                    mapNormal("<leader>gR", require("telescope.builtin").lsp_references)
 
-                    opts.desc = "Show LSP type definitions"
+                    opts.desc = "Show LSP Type Definition"
                     mapNormal("<leader>gt", vim.lsp.buf.type_definition)
 
                     opts.desc = "Rename Symbol"
@@ -56,34 +61,32 @@ return {
                     opts.desc = "Show Current Buffer's Symbols"
                     mapNormal("<leader>ds", require("telescope.builtin").lsp_document_symbols)
 
-                    opts.desc = "Show Workpace Symbols"
-                    mapNormal("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
+                    opts.desc = "Show Workspace Symbols"
+                    mapNormal("<leader>ws", require("telescope.builtin").lsp_workspace_symbols)
 
-                    opts.desc = "Show available Code Actions"
+                    opts.desc = "Show Available Code Actions"
                     vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-                    opts.desc = "Show Line Diagnostic"
+                    opts.desc = "Show Line Diagnostics"
                     mapNormal("<leader>d", vim.diagnostic.open_float)
 
                     opts.desc = "Show Buffer Diagnostics"
                     mapNormal("<leader>D", require("telescope.builtin").diagnostics)
 
-                    opts.desc = "Jump to Next Diagnostic"
-                    vim.keymap.set("n", "]d", function()
+                    opts.desc = "Jump to Next Diagnostics"
+                    mapNormal("]d", function ()
                         vim.diagnostic.jump({ count = 1, float = true })
-                    end, opts)
+                    end)
 
                     opts.desc = "Jump to Previous Diagnostics"
-                    vim.keymap.set("n", "[d", function()
+                    mapNormal("[d", function ()
                         vim.diagnostic.jump({ count = -1, float = true })
-                    end, opts)
+                    end)
 
                     opts.desc = "Restart LSP"
-                    vim.keymap.set("n", "<leader>lrs", ":LspRestart<CR>", opts)
+                    mapNormal("<leader>lrs", ":LspRestart<CR>")
                 end,
             })
-
-            -- vim.lsp.inlay_hint.enable(true)
 
             local severity = vim.diagnostic.severity
 
@@ -103,7 +106,12 @@ return {
                 float = { border = "rounded" },
             })
 
-            vim.lsp.config("gdscript", {})
+            vim.lsp.config("gdscript", {
+                cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+                -- cmd = { "godot-wsl-lsp", "--useMirroredNetworking" },
+                filetype = { "gd", "gdscript" },
+                root_markers = { "project.godot", ".git" },
+            })
             vim.lsp.enable("gdscript")
         end,
     }
