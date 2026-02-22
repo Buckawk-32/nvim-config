@@ -15,7 +15,7 @@ return {
         cmd = "Neogit",
         config = function ()
             require("neogit").setup({
-                kind = "floating",
+                -- kind = "floating",
             })
         end,
     },
