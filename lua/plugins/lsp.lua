@@ -50,7 +50,7 @@ return {
                     mapNormal("<leader>gi", vim.lsp.buf.implementation)
 
                     opts.desc = "Show LSP References"
-                    mapNormal("<leader>gR", require("telescope.builtin").lsp_references)
+                    mapNormal("<leader>gr", require("telescope.builtin").lsp_references)
 
                     opts.desc = "Show LSP Type Definition"
                     mapNormal("<leader>gt", vim.lsp.buf.type_definition)

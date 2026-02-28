@@ -73,6 +73,9 @@ vim.keymap.set("n", "<Leader>ch", ":nohl<CR>", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
+vim.keymap.set("n", "<C-f>", "<C-f>zz", opts)
+vim.keymap.set("n", "<C-b>", "<C-b>zz", opts)
+
 -- Neotree stuff 
 opts.desc = "Close Neotree"
 vim.keymap.set("n", "<Leader>cN", ":Neotree close<CR>", opts)
