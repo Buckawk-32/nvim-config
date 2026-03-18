@@ -10,7 +10,9 @@ return {
                     "ts_ls",
                     "stylua",
                     "arduino_language_server",
-                    "pylsp",
+                    "ty",
+                    "basedpyright",
+                    "ruff",
                     "marksman"
                 },
             })
