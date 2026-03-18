@@ -11,7 +11,6 @@ return {
                     "stylua",
                     "arduino_language_server",
                     "ty",
-                    "basedpyright",
                     "ruff",
                     "marksman"
                 },
@@ -43,7 +42,7 @@ return {
                     mapNormal("K", vim.lsp.buf.hover)
 
                     opts.desc = "Show LSP Definition"
-                    mapNormal("<leader>gd", require("telescope.builtin").lsp_definitions)
+                    mapNormal("<leader>gd", vim.lsp.buf.definition)
 
                     opts.desc = "Go to Declaration"
                     mapNormal("<leader>gD", vim.lsp.buf.declaration)
