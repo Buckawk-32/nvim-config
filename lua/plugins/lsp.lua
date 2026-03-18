@@ -10,7 +10,8 @@ return {
                     "ts_ls",
                     "stylua",
                     "arduino_language_server",
-                    "pylsp",
+                    "ty",
+                    "ruff",
                     "marksman"
                 },
             })
@@ -41,7 +42,7 @@ return {
                     mapNormal("K", vim.lsp.buf.hover)
 
                     opts.desc = "Show LSP Definition"
-                    mapNormal("<leader>gd", require("telescope.builtin").lsp_definitions)
+                    mapNormal("<leader>gd", vim.lsp.buf.definition)
 
                     opts.desc = "Go to Declaration"
                     mapNormal("<leader>gD", vim.lsp.buf.declaration)
@@ -50,7 +51,7 @@ return {
                     mapNormal("<leader>gi", vim.lsp.buf.implementation)
 
                     opts.desc = "Show LSP References"
-                    mapNormal("<leader>gR", require("telescope.builtin").lsp_references)
+                    mapNormal("<leader>gr", require("telescope.builtin").lsp_references)
 
                     opts.desc = "Show LSP Type Definition"
                     mapNormal("<leader>gt", vim.lsp.buf.type_definition)
