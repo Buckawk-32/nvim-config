@@ -85,7 +85,7 @@ vim.keymap.set("n", "<Leader>N", ":Neotree<CR>", opts)
 
 -- Telescope stuff
 opts.desc = "Find File (Telescope)"
-vim.keymap.set("n", "<Leader>ff", ":Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<Leader>ff", ":Telescope find_files<CR>",opts)
 
 opts.desc = "Find Word (Telescope)"
 vim.keymap.set("n", "<Leader>fw", ":Telescope live_grep<CR>", opts)

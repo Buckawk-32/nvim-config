@@ -33,11 +33,11 @@ return {
                 },
                 window = {
                   completion = cmp.config.window.bordered({
-                        border = "rounded",
+                        border = "none",
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                     }),
                   documentation = cmp.config.window.bordered({
-                        border = "rounded",
+                        border = "single",
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                     }),
                 },
@@ -59,20 +59,6 @@ return {
         end,
 
     },
-
-
-
-    -- 'saghen/blink.cmp',
-    -- opts = {
-        -- keymap = { preset = "default" },
-        -- appearance = { nerd_font_variant = "mono" },
-        -- completion = { documentation = { auto_show = false } },
-        -- sources = {
-            -- default = { "lsp", "path", "snippets", "buffer" },
-        -- },
-        -- fuzzy = { implementation = "prefer_rust_with_warning" }
-    -- },
-    -- opts_extend = { "source.default" }
     {
         "antosha417/nvim-lsp-file-operations",
         dependencies = {
