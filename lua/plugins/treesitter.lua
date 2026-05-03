@@ -1,12 +1,12 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = 'master',
+        branch = 'main',
         lazy = false,
         build = ":TSUpdate",
         priority = 50,
-        config = function()
-            require("nvim-treesitter.configs").setup({
+        config = function ()
+            require("nvim-treesitter.config").setup({
                 ensure_installed = {
                     "bash",
                     "c",
@@ -33,22 +33,18 @@ return {
                     "xml",
                     "yaml",
                     "gdscript",
-                    "godot_resource",
-                    "gdshader",
+                    "godot_resource"
                 },
-
-                
                 sync_install = false,
                 auto_install = true,
 
                 indent = {
-                    enable=true
+                    enable = true
                 },
                 highlight = {
-                    enable = true,
-                    addtional_vim_regex_highlighting = false
+                    enable = true
                 },
             })
-        end,
+        end
     },
 }

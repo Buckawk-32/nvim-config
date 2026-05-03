@@ -32,11 +32,11 @@ return {
                 },
                 window = {
                   completion = cmp.config.window.bordered({
-                    border = "rounded",
+                    border = "none",
                     winhighlight = 'Normal:NormalFloat,CursorLine:Visual,Search:None',
                   }),
                   documentation = cmp.config.window.bordered({
-                    border = "rounded",
+                    border = "single",
                     winhighlight = 'Normal:NormalFloat,CursorLine:Visual,Search:None',
                   }),
                 },
