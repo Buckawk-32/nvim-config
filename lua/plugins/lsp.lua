@@ -107,6 +107,7 @@ return {
                 float = { border = "rounded" },
             })
 
+            -- * Godot 
             vim.lsp.config("gdscript", {
                 cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
                 -- cmd = { "godot-wsl-lsp", "--useMirroredNetworking" },
@@ -114,6 +115,22 @@ return {
                 root_markers = { "project.godot", ".git" },
             })
             vim.lsp.enable("gdscript")
+
+            -- -- * Roslyn
+            -- vim.lsp.config("roslyn", {
+            --     on_init = function (client, initialize_result)
+            --         if client.server_capabilities.semanticTokensProvider then
+            --             client.server_capabilities.semanticTokensProvider.legend.tokenTypes = vim.tbl_filter(
+            --                 function (value)
+            --                     return value ~= "comments"
+            --                 end,
+            --                 client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+            --             )
+            --        end
+            --     end,
+            -- })
+            -- vim.lsp.enable("roslyn")
+
         end,
     }
 }
