@@ -18,6 +18,7 @@ require("lazy").setup({
     require "plugins.neotree",
     require "plugins.git",
     require "plugins.csharp",
+    require "plugins.java",
     require "plugins.qol",
     require "plugins.whichKey",
     require "plugins.colortheme",

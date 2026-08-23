@@ -1,6 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
-    lazy = false,
+    event = "VeryLazy",
     config = function()
         require('lualine').setup({
             options = {
@@ -9,10 +9,12 @@ return {
                     statusline = { "neo-tree" },
                 },
             }
-
         })
     end,
 
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    dependencies = {
+        'nvim-tree/nvim-web-devicons',
+        "catppuccin/nvim",
+    },
 };
 

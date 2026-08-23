@@ -219,7 +219,10 @@ return {
                         tabstop = 4,
                         align = "bottom",
                         relative = "editor",
-                    }
+                    },
+                },
+                progress = {
+                    suppress_on_insert = false
                 }
             })
         end
