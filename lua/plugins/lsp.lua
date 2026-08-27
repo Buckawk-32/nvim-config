@@ -130,30 +130,12 @@ return {
             })
             vim.lsp.enable("buf_ls")
 
-            --  NOTE: Custom jdtls setup for Java lsp 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = "java",
                 callback = function(args)
                     require"plugins.jdtls_setup".setup()
                 end
             })
-
-            -- vim.lsp.config("jdtls", {
-            --     handlers = {
-            --         ['language/status'] = function (_, result)
-            --             -- Do Nothing
-            --         end,
-            --
-            --         ['$/progress'] = function (_, result, ctx)
-            --             -- Do Nothing
-            --         end
-            --     },
-            -- })
-
-            -- require"lspconfig".jdtls.setup({
-            --     handlers
-            -- })
-
 
         end,
     }
