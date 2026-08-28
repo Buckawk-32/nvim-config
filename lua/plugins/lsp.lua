@@ -107,6 +107,7 @@ return {
                 float = { border = "rounded" },
             })
 
+            --  NOTE: Godot Lsp for Gamedev
             vim.lsp.config("gdscript", {
                 cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
                 -- cmd = { "godot-wsl-lsp", "--useMirroredNetworking" },
@@ -114,6 +115,22 @@ return {
                 root_markers = { "project.godot", ".git" },
             })
             vim.lsp.enable("gdscript")
+
+            --  NOTE: Buf Lsp for Protobuf 
+            vim.lsp.config("buf_ls", {
+                cmd = { "buf", "lsp", "serve" },
+                filetypes = { "proto", "buf-config" },
+                root_markers = {"buf.yaml", ".git" }
+            })
+            vim.lsp.enable("buf_ls")
+
+            --  NOTE: jdtls setup for Java
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "java",
+                callback = function(args)
+                    require"plugins.jdtls_setup".setup()
+                end
+            })
         end,
     }
 }

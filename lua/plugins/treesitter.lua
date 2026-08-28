@@ -35,9 +35,6 @@ return {
                     "gdscript",
                     "godot_resource"
                 },
-                sync_install = false,
-                auto_install = true,
-
                 indent = {
                     enable = true
                 },
