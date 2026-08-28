@@ -124,6 +124,13 @@ return {
             })
             vim.lsp.enable("buf_ls")
 
+            --  NOTE: Making sure marksman looks for .toml first
+            vim.lsp.config("marksman", {
+                root_markers = {".marksman.toml", ".git"}
+            })
+            vim.lsp.enable("marksman")
+
+
             --  NOTE: jdtls setup for Java
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = "java",
