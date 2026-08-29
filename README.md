@@ -62,6 +62,14 @@
         - Just need to run Mason's buf binary
         - Simple, works out of the box
 
+### Languages to Add:
+1. Typescript: *Not Specialized*
+2. Javascript: *Not Specialized*
+3. Rust: *Not Started*
+4. Go: *Not Started*
+5. SQL: *Not Started*
+
+
 ## CMP: Cmp-Nvim-Lsp + Nvim-Cmp + LuaSnip
 - After config:
     - Hard to setup, yet so much fun to do so
