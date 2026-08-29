@@ -4,7 +4,7 @@
 
 
 ## Treesitter: Nvim-Treesitter
-- **ALl Language Parsers Have Been Installed**
+- **ALL Language Parsers Have Been Installed**
 
 ## LSPs: Nvim-Lspconfig + Mason.nvim + Mason-Lspconfig.nvim
 1. *Python*
