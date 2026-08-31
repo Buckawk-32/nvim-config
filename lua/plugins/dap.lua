@@ -18,58 +18,58 @@ return {
 
 
             -- Keys:
-            local opts = { noremap = true, silent = true, nowait = true }
+            local opts = { noremap = true, silent = true }
             local mapNormal = function (keybind, func)
                 vim.keymap.set("n", keybind, func, opts)
             end
 
             opts.desc = "Toggle Breakpoint"
-            mapNormal("<leader>db", dap.toggle_breakpoint)
+            mapNormal("<leader>bb", dap.toggle_breakpoint)
 
             opts.desc = "Breakpoint Condition"
-            -- mapNormal("<leader>dB", dap.set_breakpoint(vim.fn.input("Breakpoint Condition: ")))
+            -- mapNormal("<leader>bB", dap.set_breakpoint(vim.fn.input("Breakpoint Condition: ")))
 
             opts.desc = "Run/Continue"
-            mapNormal("<leader>dc", dap.continue)
+            mapNormal("<leader>bc", dap.continue)
 
             opts.desc = "Run with Args"
-            -- mapNormal("<leader>da", dap.continue({ before = get_args }))
+            -- mapNormal("<leader>ba", dap.continue({ before = get_args }))
 
             opts.desc = "Run to Cursor"
-            mapNormal("<leader>dC", dap.run_to_cursor)
+            mapNormal("<leader>bC", dap.run_to_cursor)
 
             opts.desc = "Go to Line (No Execute)"
-            mapNormal("<leader>dg", dap.goto_)
+            mapNormal("<leader>bg", dap.goto_)
 
             opts.desc = "Step Into"
-            mapNormal("<leader>di", dap.step_into)
+            mapNormal("<leader>bi", dap.step_into)
 
             opts.desc = "Down"
-            mapNormal("<leader>dj", dap.down)
+            mapNormal("<leader>bj", dap.down)
 
             opts.desc = "Up"
-            mapNormal("<leader>dk", dap.up)
+            mapNormal("<leader>bk", dap.up)
 
             opts.desc = "Run Last"
-            mapNormal("<leader>dl", dap.run_last)
+            mapNormal("<leader>bl", dap.run_last)
 
             opts.desc = "Step Out"
-            mapNormal("<leader>do", dap.step_out)
+            mapNormal("<leader>bo", dap.step_out)
 
             opts.desc = "Step Over"
-            mapNormal("<leader>dO", dap.step_over)
+            mapNormal("<leader>bO", dap.step_over)
 
             opts.desc = "Pause"
-            mapNormal("<leader>dP", dap.pause)
+            mapNormal("<leader>bP", dap.pause)
 
             opts.desc = "Toggle REPL"
-            mapNormal("<leader>dr", dap.repl.toggle)
+            mapNormal("<leader>br", dap.repl.toggle)
 
             opts.desc = "Session"
-            mapNormal("<leader>Ds", dap.session)
+            mapNormal("<leader>bs", dap.session)
 
             opts.desc = "Terminate"
-            mapNormal("<leader>dq",
+            mapNormal("<leader>bq",
                 function ()
                     require("dap").terminate()
                     require("dapui").close()

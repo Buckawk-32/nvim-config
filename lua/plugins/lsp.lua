@@ -85,7 +85,7 @@ return {
                     end)
 
                     opts.desc = "Restart LSP"
-                    mapNormal("<leader>lrs", ":LspRestart<CR>")
+                    mapNormal("<leader>lrs", ":lsp restart<CR>")
                 end,
             })
 
