@@ -63,8 +63,6 @@
         - Simple, works out of the box
 
 ### Languages to Add:
-1. Typescript: *Not Specialized*
-2. Javascript: *Not Specialized*
 3. Rust: *Not Started*
 4. Go: *Not Started*
 5. SQL: *Not Started*

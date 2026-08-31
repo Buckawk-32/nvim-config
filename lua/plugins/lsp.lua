@@ -119,7 +119,7 @@ return {
             --  NOTE: Buf Lsp for Protobuf 
             vim.lsp.config("buf_ls", {
                 cmd = { "buf", "lsp", "serve" },
-                filetypes = { "proto", "buf-config" },
+                filetype = { "proto", "buf-config" },
                 root_markers = {"buf.yaml", ".git" }
             })
             vim.lsp.enable("buf_ls")
