@@ -28,6 +28,7 @@ require("lazy").setup({
     require "plugins.lsp",
     require "plugins.lualine",
     require "plugins.barbar",
-    require "plugins.cmp"
+    require "plugins.cmp",
+    require "plugins.dap"
 })
 

@@ -19,3 +19,6 @@ vim.o.expandtab = true
 vim.api.nvim_set_hl(0, "SameColorCursor", { bg="#cdd6f4" })
 
 vim.opt.guicursor = "n-v-c:block-SameColorCursor,i-ci-ve:ver25-SameColorCursor,r-cr-o:hor20-SameColorCursor"
+
+vim.opt.timeoutlen = 300
+vim.opt.ttimeoutlen = 15
