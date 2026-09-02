@@ -58,9 +58,18 @@
         - Simple, works out of the box
 
 ## CMP: Cmp-Nvim-Lsp + Nvim-Cmp + LuaSnip
-- After config:
-    - Hard to setup, yet so much fun to do so
-    - Forever loyal <3
+- Hard to setup, yet so much fun to do so
+- Forever loyal <3
+
+## DAP: Nvim-Dap + Nvim-Dap-UI + Nvim-Nio + Nvim-Dap-Vir-Text + Mason-Nvim-Dap
+- Harder than LSP 
+- Need to write config table for each language
+
+1. Python
+    - debugpy
+
+2. C 
+    - gdb
 
 
 ## Package Manager: Lazy
