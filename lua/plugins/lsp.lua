@@ -130,6 +130,13 @@ return {
             })
             vim.lsp.enable("marksman")
 
+            --  NOTE: asm-lsp setup for Assembly
+            vim.lsp.config("asm_lsp", {
+                cmd = {"asm-lsp"},
+                filetype = { "asm", "S", "s" },
+                root_markers = { ".git", "Makefile" }
+            })
+            vim.lsp.enable("asm_lsp")
 
             --  NOTE: jdtls setup for Java
             vim.api.nvim_create_autocmd("FileType", {

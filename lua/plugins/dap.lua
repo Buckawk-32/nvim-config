@@ -182,7 +182,6 @@ return {
                 automatic_installation = false,
                 ensure_installed = {
                     "python",
-                    "cppdbg",
                 },
                 handlers = {
                     function (config)
