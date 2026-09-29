@@ -3,10 +3,11 @@ local M = {}
 function M:setup()
     local projectName = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspaceDir = "/home/buckawk32/.jdtls_data/" .. projectName
+    local jdtls = require("jdtls")
 
     local config = {
         cmd = {
-            "/usr/lib/jvm/java-26-openjdk/bin/java",
+            "/usr/lib/jvm/java-27-openjdk/bin/java",
 
             '-Declipse.application=org.eclipse.jdt.ls.core.id1',
             '-Dosgi.bundles.defaultStartLevel=4',
@@ -28,8 +29,10 @@ function M:setup()
             workspaceDir,
         },
 
-        --  FIX: This line isn't working, debug java lsp setup later
-        rootDir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
+        --  NOTE: This line isn't working, debug java lsp setup later
+         -- rootDir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
+
+        rootDir = jdtls.setup.find_root({".git", "mvnw", "gradlew"}),
 
         settings = {
             java = {},
