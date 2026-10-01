@@ -6,7 +6,7 @@ function M:setup()
 
     local config = {
         cmd = {
-            "/usr/lib/jvm/java-26-openjdk/bin/java",
+            "/usr/lib/jvm/java-27-openjdk/bin/java",
 
             '-Declipse.application=org.eclipse.jdt.ls.core.id1',
             '-Dosgi.bundles.defaultStartLevel=4',
@@ -19,7 +19,7 @@ function M:setup()
             '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
             '-jar',
-            '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.200.v20260619-2039.jar',
+            '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.8.0.v20260804-1928.jar',
 
             '-configuration',
             '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/config_linux',
