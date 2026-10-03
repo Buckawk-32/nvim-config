@@ -14,6 +14,11 @@ return {
                     "ruff",
                     "marksman"
                 },
+                automatic_enable = {
+                    exclude = {
+                        "jdtls",
+                    }
+                },
             })
         end,
     },

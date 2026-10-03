@@ -3,7 +3,6 @@ local M = {}
 function M:setup()
     local projectName = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspaceDir = "/home/buckawk32/.jdtls_data/" .. projectName
-    local jdtls = require("jdtls")
 
     local config = {
         cmd = {
@@ -20,7 +19,7 @@ function M:setup()
             '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
             '-jar',
-            '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.200.v20260619-2039.jar',
+            '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.8.0.v20260804-1928.jar',
 
             '-configuration',
             '/home/buckawk32/.local/share/nvim/mason/packages/jdtls/config_linux',
@@ -30,9 +29,9 @@ function M:setup()
         },
 
         --  NOTE: This line isn't working, debug java lsp setup later
-         -- rootDir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
+        rootDir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
 
-        rootDir = jdtls.setup.find_root({".git", "mvnw", "gradlew"}),
+        -- rootDir = jdtls.setup.find_root({".git", "mvnw", "gradlew"}),
 
         settings = {
             java = {},
