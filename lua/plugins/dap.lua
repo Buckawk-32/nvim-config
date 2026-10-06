@@ -29,20 +29,29 @@ return {
             opts.desc = "Breakpoint Condition"
             -- mapNormal("<leader>bB", dap.set_breakpoint(vim.fn.input("Breakpoint Condition: ")))
 
-            opts.desc = "Run/Continue"
+            opts.desc = "Run/Continue Until Breakpoint"
             mapNormal("<leader>bc", dap.continue)
 
             opts.desc = "Run with Args"
             -- mapNormal("<leader>ba", dap.continue({ before = get_args }))
 
-            opts.desc = "Run to Cursor"
+            opts.desc = "Run to Cursor Position"
             mapNormal("<leader>bC", dap.run_to_cursor)
-
-            opts.desc = "Go to Line (No Execute)"
-            mapNormal("<leader>bg", dap.goto_)
 
             opts.desc = "Step Into"
             mapNormal("<leader>bi", dap.step_into)
+
+            opts.desc = "Step Into Instruction (ASM)"
+            mapNormal("<leader>bsi", dap.step_into({ steppingGranularity = 'instruction' }))
+
+            opts.desc = "Step Out"
+            mapNormal("<leader>bO", dap.step_out)
+
+            opts.desc = "Step Over"
+            mapNormal("<leader>bo", dap.step_over)
+
+            opts.desc = "Step Over Instruction (ASM)"
+            mapNormal("<leader>bso", dap.step_over({ steppingGranularity = "instruction" }))
 
             opts.desc = "Down"
             mapNormal("<leader>bj", dap.down)
@@ -50,14 +59,11 @@ return {
             opts.desc = "Up"
             mapNormal("<leader>bk", dap.up)
 
-            opts.desc = "Run Last"
+            opts.desc = "Go to Line (No Execute)"
+            mapNormal("<leader>bg", dap.goto_)
+
+            opts.desc = "Run Last Debug Session"
             mapNormal("<leader>bl", dap.run_last)
-
-            opts.desc = "Step Out"
-            mapNormal("<leader>bo", dap.step_out)
-
-            opts.desc = "Step Over"
-            mapNormal("<leader>bO", dap.step_over)
 
             opts.desc = "Pause"
             mapNormal("<leader>bP", dap.pause)
@@ -121,6 +127,8 @@ return {
                         end,
                         cwd = "${workspaceFolder}",
                         stopAtBeginningOfMainSubprogram = false,
+                        stopOnEntry = false,
+                        initCommands = { "set disassembly-flavor att" },
                     },
                     {
                         name = "Select and attach to process",
@@ -133,7 +141,8 @@ return {
                             local name = vim.fn.input('Executable name (filter): ')
                             return require("dap.utils").pick_process({ filter = name })
                         end,
-                        cwd = '${workspaceFolder}'
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
                     },
                     {
                         name = 'Attach to gdbserver :1234',
@@ -143,12 +152,88 @@ return {
                         program = function()
                             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                         end,
-                        cwd = '${workspaceFolder}'
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
                     },
                 },
-                -- lua = {
-                --
-                -- }
+                cpp = {
+                    {
+                        name = "Launch",
+                        type = "gdb",
+                        request = "launch",
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        cwd = "${workspaceFolder}",
+                        stopAtBeginningOfMainSubprogram = false,
+                        stopOnEntry = false,
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+                    {
+                        name = "Select and attach to process",
+                        type = "gdb",
+                        request = "attach",
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        pid = function()
+                            local name = vim.fn.input('Executable name (filter): ')
+                            return require("dap.utils").pick_process({ filter = name })
+                        end,
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+                    {
+                        name = 'Attach to gdbserver :1234',
+                        type = 'gdb',
+                        request = 'attach',
+                        target = 'localhost:1234',
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+                },
+                asm = {
+                     {
+                        name = "Launch",
+                        type = "gdb",
+                        request = "launch",
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        cwd = "${workspaceFolder}",
+                        stopAtBeginningOfMainSubprogram = false,
+                        stopOnEntry = true,
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+                    {
+                        name = "Select and attach to process",
+                        type = "gdb",
+                        request = "attach",
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        pid = function()
+                            local name = vim.fn.input('Executable name (filter): ')
+                            return require("dap.utils").pick_process({ filter = name })
+                        end,
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+                    {
+                        name = 'Attach to gdbserver :1234',
+                        type = 'gdb',
+                        request = 'attach',
+                        target = 'localhost:1234',
+                        program = function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        end,
+                        cwd = '${workspaceFolder}',
+                        initCommands = { "set disassembly-flavor att" },
+                    },
+               },
             }
 
 

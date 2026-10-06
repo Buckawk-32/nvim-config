@@ -28,10 +28,7 @@ function M:setup()
             workspaceDir,
         },
 
-        --  NOTE: This line isn't working, debug java lsp setup later
         rootDir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
-
-        -- rootDir = jdtls.setup.find_root({".git", "mvnw", "gradlew"}),
 
         settings = {
             java = {},

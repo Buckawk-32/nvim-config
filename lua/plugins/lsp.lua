@@ -91,6 +91,9 @@ return {
 
                     opts.desc = "Restart LSP"
                     mapNormal("<leader>lrs", ":lsp restart<CR>")
+
+                    opts.desc = "Check LSP Health"
+                    mapNormal("<leader>lh", ":checkhealth vim.lsp<CR>")
                 end,
             })
 
