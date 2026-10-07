@@ -41,6 +41,7 @@ return {
             opts.desc = "Step Into"
             mapNormal("<leader>bi", dap.step_into)
 
+            --  FIX: Need to have nvim recongize nil function as a valid parameter
             opts.desc = "Step Into Instruction (ASM)"
             mapNormal("<leader>bsi", dap.step_into({ steppingGranularity = 'instruction' }))
 
@@ -50,6 +51,7 @@ return {
             opts.desc = "Step Over"
             mapNormal("<leader>bo", dap.step_over)
 
+            --  FIX: Need to have nvim recongize nil function as a valid parameter
             opts.desc = "Step Over Instruction (ASM)"
             mapNormal("<leader>bso", dap.step_over({ steppingGranularity = "instruction" }))
 
@@ -82,6 +84,9 @@ return {
                     require("nvim-dap-virtual-text").toggle()
                 end
             )
+
+            opts.desc = "Check DAP Health"
+            mapNormal("<leader>bh", ":checkhealth dap<CR>")
 
             dap.adapters = {
                 gdb = {
