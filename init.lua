@@ -33,6 +33,7 @@ require("lazy").setup({
     require "plugins.lualine",
     require "plugins.barbar",
     require "plugins.cmp",
-    require "plugins.dap"
+    require "plugins.dap",
+    require "plugins.latex"
 })
 
