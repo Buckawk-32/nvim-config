@@ -27,13 +27,17 @@ return {
             mapNormal("<leader>bb", dap.toggle_breakpoint)
 
             opts.desc = "Breakpoint Condition"
-            -- mapNormal("<leader>bB", dap.set_breakpoint(vim.fn.input("Breakpoint Condition: ")))
+            mapNormal("<leader>bB", function ()
+                dap.set_breakpoint(vim.fn.input("Breakpoint Condition: "))
+            end)
 
             opts.desc = "Run/Continue Until Breakpoint"
             mapNormal("<leader>bc", dap.continue)
 
-            opts.desc = "Run with Args"
-            -- mapNormal("<leader>ba", dap.continue({ before = get_args }))
+            -- opts.desc = "Run with Args"
+            -- mapNormal("<leader>ba", function ()
+            --     dap.continue({})
+            -- end)
 
             opts.desc = "Run to Cursor Position"
             mapNormal("<leader>bC", dap.run_to_cursor)
