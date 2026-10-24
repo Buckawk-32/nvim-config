@@ -41,9 +41,10 @@ return {
             opts.desc = "Step Into"
             mapNormal("<leader>bi", dap.step_into)
 
-            --  FIX: Need to have nvim recongize nil function as valid parameter
             opts.desc = "Step Into Instruction (ASM)"
-            mapNormal("<leader>bsi", dap.step_into({ steppingGranularity = "instruction" }))
+            mapNormal("<leader>bsi", function ()
+                dap.step_into({ steppingGranularity = 'instruction' })
+            end)
 
             opts.desc = "Step Out"
             mapNormal("<leader>bO", dap.step_out)
@@ -51,9 +52,10 @@ return {
             opts.desc = "Step Over"
             mapNormal("<leader>bo", dap.step_over)
 
-            --  FIX: Need to have nvim recongize nil function as valid parameter
             opts.desc = "Step Over Instruction (ASM)"
-            mapNormal("<leader>bso", dap.step_over({ steppingGranularity = "instruction" }))
+            mapNormal("<leader>bso", function ()
+                dap.step_over({ steppingGranularity = "instruction" })
+            end)
 
             opts.desc = "Down"
             mapNormal("<leader>bj", dap.down)
