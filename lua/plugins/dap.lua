@@ -46,7 +46,7 @@ return {
             mapNormal("<leader>bi", dap.step_into)
 
             opts.desc = "Step Into Instruction (ASM)"
-            mapNormal("<leader>bsi", function ()
+            mapNormal("<leader>bai", function ()
                 dap.step_into({ steppingGranularity = "instruction" })
             end)
 
@@ -57,7 +57,7 @@ return {
             mapNormal("<leader>bo", dap.step_over)
 
             opts.desc = "Step Over Instruction (ASM)"
-            mapNormal("<leader>bso", function ()
+            mapNormal("<leader>bao", function ()
                 dap.step_over({ steppingGranularity = "instruction" })
             end)
 
