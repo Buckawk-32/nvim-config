@@ -6,6 +6,10 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set({ "n", "v" }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set("n", "gx", "<Nop>", opts)
+vim.keymap.set("n", "#", "<Nop>", opts)
+vim.keymap.set("n", "*", "<Nop>", opts)
+vim.keymap.set("n", "g#", "<Nop>", opts)
+vim.keymap.set("n", "g*", "<Nop>", opts)
 
 -- Text stuff
 opts.desc = "Toggle Word Wrap"
@@ -90,6 +94,18 @@ vim.keymap.set("n", "<Leader>ff", ":Telescope find_files<CR>",opts)
 opts.desc = "Find Word (Telescope)"
 vim.keymap.set("n", "<Leader>fw", ":Telescope live_grep<CR>", opts)
 
+
+opts.desc = "Find Before Current Word (Vim Searching)"
+vim.keymap.set("n", "<leader>f#", "#", opts)
+
+opts.desc = "Find Before Current Partial Word (Vim Searching)"
+vim.keymap.set("n", "<leader>f3", "g#", opts)
+
+opts.desc = "Find Next Current Word (Vim Searching)"
+vim.keymap.set("n", "<leader>f*", "*", opts)
+
+opts.desc = "Find Next Current Partial Word (Vim Searching)"
+vim.keymap.set("n", "<leader>f8", "g*", opts)
 
 -- Git stuff
 opts.desc = "Open NeoGit"
